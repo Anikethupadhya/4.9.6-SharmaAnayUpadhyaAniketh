@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+
+public class ZooKeeperRunner {
+    public static void main(String[] args) {
+        ArrayList<Animal> zoo = new ArrayList<>();
+        zoo.add(new Deer());
+        zoo.add(new Giraffe("leaves", false, 25.0));
+        zoo.add(new Gorilla());
+        zoo.add(new Hippo());
+
+        // Task 1: Construct an Animal object from Elephant
+        Animal a = new Elephant("leaves, grasses, roots", false, 60.0);
+
+        // Task 2: Call isNocturnal()
+        System.out.println("Is the elephant nocturnal? " + a.isNocturnal());
+
+        // Task 4: Comment out trumpet() call with explanation
+        // a.trumpet(); // This is not allowed because 'a' is of type Animal, and Animal does not have a trumpet() method, even though the object is an Elephant. The reference type determines the accessible methods.
+
+        // Task 6: Test toString() with Animal reference
+        System.out.println("Task 6 (Animal reference): " + a.toString());
+
+        // Task 10: Test toString() with Object reference (Task 9)
+        Object o = new Elephant("leaves, grasses, roots", false, 60.0);
+        System.out.println("Task 9 (Object reference): " + o.toString());
+
+        // Task 12: Test toString() with Animal object (Task 11)
+        Animal a3 = new Animal();
+        System.out.println("Task 11 (Animal object): " + a3.toString());
+
+        // Task 14: Test toString() with Animal reference to Elephant (Task 13)
+        Animal a4 = new Elephant("leaves, grasses, roots", false, 60.0);
+        System.out.println("Task 13 (Animal reference to Elephant): " + a4.toString());
+
+        // Task 15: Test toString() with Elephant reference
+        Elephant e = new Elephant("leaves, grasses, roots", false, 60.0);
+        System.out.println("Task 15 (Elephant reference): " + e.toString());
+
+        // Existing code to hear the animals
+        System.out.println("\nHearing the animals in the zoo:");
+        hearTheAnimal(zoo.get(0));
+        hearTheAnimal(zoo.get(1));
+        hearTheAnimal(zoo.get(2));
+        hearTheAnimal(zoo.get(3));
+    }
+
+    public static void hearTheAnimal(Animal currentAnimal) {
+        currentAnimal.speak();
+    }
+}
